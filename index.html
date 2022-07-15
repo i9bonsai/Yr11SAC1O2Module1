@@ -1,18 +1,94 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&family=Source+Sans+Pro&display=swap" rel="stylesheet">
     <title>Yr11SAC102Module01</title>
+    <style>
+        .headers{
+            font-weight: bold;
+            text-decoration: underline;
+            font-family: 'Source Sans Pro', sans-serif;
+        }
+
+        .bodies{
+            font-family: 'Roboto', sans-serif;
+        }
+
+    </style>
 </head>
 <body>
 <div>
-    <h1>GST Calculator</h1>
-    <p>Displayed final total is the item's value price + the 10% of the items value</p>
+    <h1 class="headers">GST Calculator</h1>
+    <p class="bodies">Displayed Total Price is the item's value price including GST</p>
     <hr>
 </div>
-<?php
 
-?>
+<div class="bodies">
+    <?php
+
+    echo "<p class='headers'>Without GST</p>";
+    $raw_price = array("0.50", "1.00", "1.10", "100.00");
+    $arrlength = count($raw_price);
+
+    for($x = 0; $x < $arrlength; $x++) {
+        echo " = $";
+        echo $raw_price[$x];
+        echo "<br>";
+    }
+
+    echo "<p class='headers'>GST Equivalent</p>";
+
+    function addGST($rawprice) {
+        $p = $rawprice*0.1;
+        echo " = $";
+        return $p;
+
+
+    }
+
+    echo "<br>";
+    echo addGST($raw_price[0]);
+
+    echo "<br>";
+    echo addGST($raw_price[1]);
+
+    echo "<br>";
+    echo addGST($raw_price[2]);
+
+    echo "<br>";
+    echo addGST($raw_price[3]);
+
+
+
+    echo "<p class='headers'>Total Price</p>";
+
+    function totalPrice($rawprice) {
+        echo "$".$rawprice." With GST is = $";
+        $totalPrice = $rawprice * 1.1;
+        echo $totalPrice;
+        echo "<br>";
+    }
+
+    echo totalPrice($raw_price[0]);
+
+
+    echo totalPrice($raw_price[1]);
+
+
+    echo totalPrice($raw_price[2]);
+
+
+    echo totalPrice($raw_price[3]);
+
+
+
+    ?>
+</div>
+
+
+
 </body>
 </html>
 
